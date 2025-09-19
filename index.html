@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo Musical</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎵 Bingo Musical de Mimy 🎵</h1>
+            <p>¡Marca las canciones que suenen y completa tu cartón!</p>
+        </div>
+<div class="game-setup">
+            <div class="setup-row">
+                <div class="setup-group">
+                    <label>Tamaño del cartón:</label>
+                    <select id="gridSize">
+                        <option value="6">6 canciones</option>
+                        <option value="9">9 canciones</option>
+                    </select>
+                </div>
+                <div class="setup-group">
+                    <label>Modo de juego:</label>
+                    <select id="gameMode">
+                        <option value="line">Línea completa</option>
+                        <option value="corners">Cuatro esquinas</option>
+                        <option value="full">Cartón lleno</option>
+                    </select>
+                </div>
+                <button class="btn-primary" onclick="startNewGame()">Nuevo Juego</button>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div class="bingo-card">
+                <h3 class="card-title" id="cardTitle">Tu Cartón de Bingo</h3>
+                <div id="bingoGrid" class="bingo-grid grid-6"></div>
+                <div class="game-info">
+                    <div class="info-row">
+                        <span>Modo:</span>
+                        <span id="currentMode">Línea completa</span>
+                    </div>
+                    <div class="info-row">
+                        <span>Marcadas:</span>
+                        <span id="markedCount">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-panel">
+                <h3 style="text-align: center; margin-bottom: 20px;">Control del Juego</h3>
+
+                <div class="current-song">
+                    <div class="song-number">Escucha la Siguiente Canción<span id="songNumber"></span></div>
+                    <div class="song-title" id="currentSongTitle">¡Bienvenido al Bingo Musical!</div>
+                    <div class="song-artist" id="currentSongArtist">Marca tu CANCION</div>
+                </div>
+
+                <div class="control-buttons">
+                
+                
+                    <button class="btn-control btn-reset" onclick="startNewGame()">Reiniciar Juego</button>
+                </div>
+
+                <div class="game-info">
+                    <div class="info-row">
+                        <span>Total canciones:</span>
+                        <span id="totalSongs">100</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="winner-notification" id="winnerNotification">
+        🎉 ¡BINGO! 🎉<br>
+        <span id="winnerName"></span>
+        <div style="font-size: 0.6em; margin-top: 10px;">¡Has ganado!</div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+<footer class="footer-content">
+    <div class="footer-container">
+        <!-- Sección principal del footer -->
+        
+        
+        <!-- Línea divisora con notas musicales -->
+        <div class="footer-divider">
+            <div class="musical-line">
+                <span class="note">🎵</span>
+                <span class="note">🎶</span>
+                <span class="note">🎤</span>
+                <span class="note">🎸</span>
+                <span class="note">🎹</span>
+                <span class="note">🥳</span>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="copyright">
+            <div class="copyright-content">
+                <div class="copyright-text">
+                    <h4>
+                        <span class="brand-mark">DM</span> © 
+                        <span class="copyright-year">2025</span> - 
+                        <span data-i18n="derechos">Todos los derechos reservados Guty Producciones</span>
+                    </h4>
+                    <p class="copyright-subtitle">
+                        Hecho para los amantes de la música
+                    </p>
+                </div>
+                
+                <div class="footer-badges">
+                    <span class="badge">🎵 Música</span>
+                    <span class="badge">🎮 Diversión</span>
+                    <span class="badge">🏆 Entretenimiento</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Efectos visuales -->
+        <div class="footer-effects">
+            <div class="floating-note note-1">🎵</div>
+            <div class="floating-note note-2">🎶</div>
+            <div class="floating-note note-3">🎵</div>
+        </div>
+    </div>
+</footer>
+
+</html>
