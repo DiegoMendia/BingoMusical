@@ -6,6 +6,7 @@ const songDatabase = [
     { title: "La Chica Del Bikini Azul", artist: "Luis Miguel" },
     { title: "En Tus Manos", artist: "Los Byby's" },
     { title: "Onda Onda", artist: "Axe Bahia" },
+    { title: "Por que te tengo que olvidar", artist: "Joaquin Sosa" },
     { title: "Mujer Amante", artist: "Rata Blanca" },
     { title: "Ji Ji Ji", artist: "Patricio Rey y sus Redonditos  de Ricota" },
     { title: "El Obrero", artist: "Los Kjarkas" },
@@ -110,11 +111,11 @@ const songDatabase = [
     { title: "Maestra", artist: "Grupo Bandy2" },
     { title: "El Maestro", artist: "Antonio Rios" },
     { title: "Tu Misterioso Alguien", artist: "Luck Ra, Miranda" },
-    { title: "Que Tendrá El Petiso", artist: "" },
+    { title: "Que Tendrá El Petiso", artist: "Ricky Maravilla" },
     { title: "Camarón", artist: "Riki Maravilla" },
     { title: "El Hijo de Cuca", artist: "Pocho La Pantera" },
-    { title: "El Hombre Gato", artist: "Riki Maravilla" },
-    { title: "¿Quién Se Tomó Todo El Vino?", artist: "" },
+    { title: "El Hombre Gato", artist: "Ricki Maravilla" },
+    { title: "¿Quién Se Tomó Todo El Vino?", artist: "La Mona Jimenez" },
     { title: "La Lata", artist: "Supermerk2" },
     { title: "Livin'la Vida Loca", artist: "Ricky Martin" },
     { title: "Rakata", artist: "Wisin & Yandel" },
@@ -210,12 +211,12 @@ function createWelcomeModal() {
             </div>
             
             <div class="modal-footer">
-                <button class="btn-cancel" onclick="hideWelcomeModal()">
-                    <span>Cancelar</span>
-                </button>
                 <button class="btn-start" onclick="validateAndStartGame()">
                     <span class="btn-icon">🚀</span>
                     <span>¡Comenzar a Jugar!</span>
+                </button>
+                <button class="btn-cancel" onclick="hideWelcomeModal()">
+                    <span>Cancelar</span>
                 </button>
             </div>
             
