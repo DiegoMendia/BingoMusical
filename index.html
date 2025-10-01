@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bingo Musical</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="container">
         <div class="header">
-            <h1>🎵 Bingo Musical de Mimy 🎵</h1>
+            <h1>🎵 CUMPLE EMY 🎵</h1>
             <p>¡Marca las canciones que suenen y completa tu cartón!</p>
         </div>
-<div class="game-setup">
+        <div class="game-setup">
             <div class="setup-row">
                 <div class="setup-group">
                     <label>Tamaño del cartón:</label>
@@ -32,6 +32,10 @@
                     </select>
                 </div>
                 <button class="btn-primary" onclick="startNewGame()">COMENZAR</button>
+                <button class="btn-primary" onclick="window.open('musicalizador.html', '_blank')">
+                    MUSICALIZADOR
+                </button>
+
             </div>
         </div>
 
@@ -61,8 +65,8 @@
                 </div>
 
                 <div class="control-buttons">
-                
-                
+
+
                     <button class="btn-control btn-reset" onclick="startNewGame()">Reiniciar Juego</button>
                 </div>
 
@@ -83,13 +87,13 @@
         <div style="font-size: 0.6em; margin-top: 10px;">¡Has ganado!</div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 <footer class="footer-content">
     <div class="footer-container">
         <!-- Sección principal del footer -->
-        
-        
+
+
         <!-- Línea divisora con notas musicales -->
         <div class="footer-divider">
             <div class="musical-line">
@@ -101,21 +105,21 @@
                 <span class="note">🥳</span>
             </div>
         </div>
-        
+
         <!-- Copyright -->
         <div class="copyright">
             <div class="copyright-content">
                 <div class="copyright-text">
                     <h4>
-                        <span class="brand-mark">DM</span> © 
-                        <span class="copyright-year">2025</span> - 
+                        <span class="brand-mark">DM</span> ©
+                        <span class="copyright-year">2025</span> -
                         <span data-i18n="derechos">Todos los derechos reservados - Guty Producciones</span>
                     </h4>
                     <p class="copyright-subtitle">
                         Hecho para los amantes de la música
                     </p>
                 </div>
-                
+
                 <div class="footer-badges">
                     <span class="badge">🎵 Música</span>
                     <span class="badge">🎮 Diversión</span>
@@ -123,7 +127,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Efectos visuales -->
         <div class="footer-effects">
             <div class="floating-note note-1">🎵</div>

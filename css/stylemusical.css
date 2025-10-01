@@ -1,0 +1,360 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: white;
+    overflow-x: auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+.game-area {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.bingo-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    color: #333;
+    min-width: 300px;
+    flex: 1;
+    max-width: 600px;
+}
+
+.card-title {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #4A5568;
+}
+
+.bingo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.bingo-cell {
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 15px 8px;
+    min-height: 80px;
+}
+
+.bingo-cell:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.bingo-cell.marked {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border-color: #4CAF50;
+    transform: scale(0.95);
+}
+
+.bingo-cell.marked::after {
+    content: "✓";
+    position: absolute;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.control-panel {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 300px;
+    flex: 1;
+    max-width: 500px;
+}
+
+.control-panel h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn-external {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-external:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+.search-section {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
+
+.search-input::placeholder {
+    color: #999;
+}
+
+.btn-search {
+    padding: 12px 25px;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-search:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+.search-results {
+    display: none;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.search-results.active {
+    display: block;
+}
+
+.search-result-item {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.search-result-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.search-result-item.selected {
+    background: rgba(76, 175, 80, 0.3);
+    border-left-color: #4CAF50;
+}
+
+.search-result-item strong {
+    display: block;
+    margin-bottom: 3px;
+}
+
+.no-results {
+    text-align: center;
+    padding: 20px;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+.game-info {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.played-songs {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.played-songs h4 {
+    margin-bottom: 10px;
+}
+
+.played-songs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.played-song {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 5px;
+    font-size: 0.9em;
+    border-left: 3px solid #4CAF50;
+}
+
+.played-song strong {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 1.05em;
+}
+
+.played-song small {
+    opacity: 0.9;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 20px;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .game-area {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .header p {
+        font-size: 1em;
+    }
+
+    .bingo-card {
+        min-width: 280px;
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .control-panel {
+        min-width: 280px;
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .bingo-cell {
+        font-size: 0.8em;
+        min-height: 70px;
+        padding: 6px;
+    }
+
+    .played-songs {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .bingo-card,
+    .control-panel {
+        min-width: 260px;
+        padding: 12px;
+    }
+
+    .bingo-cell {
+        font-size: 0.75em;
+        min-height: 60px;
+        padding: 4px;
+    }
+}
+
+@media (max-width: 320px) {
+    .bingo-cell {
+        font-size: 0.7em;
+        min-height: 55px;
+    }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controlador de Canciones ADM</title>
+    <link rel="stylesheet" href="css/stylemusical.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎵 Controlador Musical DJ🎵</h1>
+            <p>¡Selecciona las canciones que suenan!</p>
+        </div>
+
+         <div class="search-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Buscar canción o artista..."
+                    onkeypress="if(event.key === 'Enter') searchSongs()"
+                >
+                <button class="btn-search" onclick="searchSongs()">🔍 Buscar</button>
+            </div>
+            <div id="searchResults" class="search-results"></div>
+        </div>
+
+        <div class="game-area">
+            <div class="bingo-card">
+                <h3 class="card-title">Catálogo de Canciones</h3>
+                <div id="bingoGrid" class="bingo-grid"></div>
+            </div>
+
+            <div class="control-panel">
+                <h3>Canciones Seleccionadas</h3>
+
+                <a href="https://open.spotify.com/playlist/1YQum2SIqqpPIVLJqQTslN?si=YHBogiBgTdOVOhbhYIFDrw&pi=j56OgO46SYKST&nd=1&dlsi=7e3a09bf110e437b" target="_blank" class="btn-external">
+                    🔗 Abrir Reproductor Externo
+                </a>
+
+                <div class="game-info">
+                    <div class="info-row">
+                        <span>Total en catálogo:</span>
+                        <span id="totalSongs">100</span>
+                    </div>
+                    <div class="info-row">
+                        <span>Canciones seleccionadas:</span>
+                        <span id="selectedCount">0</span>
+                    </div>
+                </div>
+
+                <div class="played-songs">
+                    <h4>Lista de reproducción:</h4>
+                    <div id="playedSongsList" class="played-songs-list">
+                        <div class="empty-message">No hay canciones seleccionadas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/appmusical.js"></script>
+</body>
+
+</html>
