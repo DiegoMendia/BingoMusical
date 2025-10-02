@@ -333,37 +333,6 @@ function showSuccessFeedback(callback) {
     }, 1500);
 }
 
-// Función para continuar con la configuración del juego (lógica original)
-function continueGameSetup(playerName) {
-    const gridSize = parseInt(document.getElementById('gridSize').value);
-    const gameMode = document.getElementById('gameMode').value;
-
-    currentGame = {
-        gridSize: gridSize,
-        gameMode: gameMode,
-        bingoCard: [],
-        markedCells: Array(gridSize).fill(false),
-        playedSongs: [],
-        currentSongIndex: -1,
-        gameWon: false,
-        playerName: playerName,
-        gameStarted: true
-    };
-
-    // Mostrar animación de bienvenida personalizada
-    showPersonalizedWelcome(playerName);
-
-    setTimeout(() => {
-        generateBingoCard();
-        updateCardTitle();
-        updateGameInfo();
-        updatePlayedSongsList();
-        document.getElementById('currentSongTitle').textContent = 'Marca Tu Cancion en el cartón';
-        document.getElementById('currentSongArtist').textContent = 'para ganar';
-        document.getElementById('winnerNotification').style.display = 'none';
-    }, 2000);
-}
-
 // Función para mostrar bienvenida personalizada
 function showPersonalizedWelcome(playerName) {
     // Crear overlay de bienvenida personalizada
@@ -838,8 +807,10 @@ function continueGameSetup(playerName) {
         updateCardTitle();
         updateGameInfo();
         updatePlayedSongsList();
-        document.getElementById('currentSongTitle').textContent = 'Marca Tu Cancion en el cartón';
-        document.getElementById('currentSongArtist').textContent = 'para ganar';
+        document.getElementById('currentSongTitle').textContent = '¡Listo para comenzar!';
+        document.getElementById('currentSongArtist').textContent = 'Marca las canciones que suenen en tu cartón';
+        document.getElementById('songNumber').textContent = '0';
         document.getElementById('winnerNotification').style.display = 'none';
+        document.getElementById('currentSong').textContent = `${currentGame.gridSize} canciones`;
     }, 2000);
 }
