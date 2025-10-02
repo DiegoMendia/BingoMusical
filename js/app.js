@@ -808,10 +808,9 @@ function addWelcomeParticles() {
 // Inicializar el juego con cartón vacío
 initializeGame();
 
-// Función para continuar con la configuración del juego (lógica original)
 function continueGameSetup(playerName) {
     const gridSize = parseInt(document.getElementById('gridSize').value);
-    const gameMode = document.getElementById(('gameMode').value);
+    const gameMode = (document.getElementById('gameMode').value);
 
     currentGame = {
         gridSize: gridSize,
