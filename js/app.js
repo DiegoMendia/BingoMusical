@@ -66,7 +66,7 @@ const songDatabase = [
     { title: "El Bombon", artist: "Los Palmeras" },
     { title: "El Taxi", artist: "Sensato, Osmari Garcia" },
     { title: "Monaco", artist: "DesaKTa2" },
-    { title: "La Diabla",ist: "DesaKTa2" },
+    { title: "La Diabla", ist: "DesaKTa2" },
     { title: "El Olvidao", artist: "Nestor Garnica" },
     { title: "Caribe Sur-2020", artist: "Man Ray" },
     { title: "Gustito a Mistol", artist: "Los Changos Oficial" },
@@ -93,7 +93,7 @@ const songDatabase = [
     { title: "Se Parece Mas A Ti", artist: "Jambao" },
     { title: "No Me Acuerdo", artist: "Thalia, Natti Natasha" },
     { title: "A Quien Le Importa", artist: "Thalia" },
-    { title: "El Alacran", artist:"Sandy & Papo" },
+    { title: "El Alacran", artist: "Sandy & Papo" },
     { title: "Violeta", artist: "Alcides" },
     { title: "Pintame", artist: "Elvis Crespo" },
     { title: "Estoy Saliendo Con un Chabon", artist: "Los Sultanes" },
@@ -807,3 +807,40 @@ function addWelcomeParticles() {
 
 // Inicializar el juego con cartón vacío
 initializeGame();
+
+// Función para continuar con la configuración del juego (lógica original)
+function continueGameSetup(playerName) {
+    const gridSize = parseInt(document.getElementById('gridSize').value);
+    const gameMode = document.getElementById(('gameMode').value);
+
+    currentGame = {
+        gridSize: gridSize,
+        gameMode: gameMode,
+        bingoCard: [],
+        markedCells: Array(gridSize).fill(false),
+        playedSongs: [],
+        currentSongIndex: -1,
+        gameWon: false,
+        playerName: playerName,
+        gameStarted: true
+    };
+
+    // Ocultar la sección de configuración del juego
+    const gameSetup = document.querySelector('.game-setup');
+    if (gameSetup) {
+        gameSetup.style.display = 'none';
+    }
+
+    // Mostrar animación de bienvenida personalizada
+    showPersonalizedWelcome(playerName);
+
+    setTimeout(() => {
+        generateBingoCard();
+        updateCardTitle();
+        updateGameInfo();
+        updatePlayedSongsList();
+        document.getElementById('currentSongTitle').textContent = 'Marca Tu Cancion en el cartón';
+        document.getElementById('currentSongArtist').textContent = 'para ganar';
+        document.getElementById('winnerNotification').style.display = 'none';
+    }, 2000);
+}
