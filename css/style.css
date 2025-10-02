@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #d755f8 0%, #764ba2 100%);
     min-height: 100vh;
     color: white;
     overflow-x: auto;
@@ -26,8 +26,7 @@ body {
 .header h1 {
     font-size: 2.5em;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(45deg, #FFD700, #FFA500);
+    background: #e9ff61 ;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
