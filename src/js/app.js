@@ -144,6 +144,28 @@ let currentGame = {
     gameStarted: false
 };
 
+// Función para mostrar el modal de instrucciones
+function showInstructionsModal() {
+    const modal = document.getElementById('instructionsModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        setTimeout(() => {
+            modal.classList.add('show');
+        }, 10);
+    }
+}
+
+// Función para ocultar el modal de instrucciones
+function hideInstructionsModal() {
+    const modal = document.getElementById('instructionsModal');
+    if (modal) {
+        modal.classList.remove('show');
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
+}
+
 // Función startNewGame mejorada con modal personalizado
 function startNewGame() {
     // Mostrar el modal de bienvenida en lugar del prompt básico

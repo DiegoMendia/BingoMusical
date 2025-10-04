@@ -31,6 +31,7 @@
                         <option value="full">Cartón lleno</option>
                     </select>
                 </div>
+                <button class="btn-primary" onclick="showInstructionsModal()">¿Como se Juega? </button>
                 <button class="btn-primary" onclick="startNewGame()">COMENZAR</button>
                 <button class="btn-primary" onclick="window.open('musicalizador.html', '_blank')">
                     COPYRIGHT
@@ -91,11 +92,47 @@
         <div style="font-size: 0.6em; margin-top: 10px;">¡Has ganado!</div>
     </div>
 
+    <div id="instructionsModal" class="instructions-modal">
+        <div class="instructions-overlay" onclick="hideInstructionsModal()"></div>
+        <div class="instructions-content">
+            <div class="instructions-header">
+                <span class="instructions-icon">🎵</span>
+                <h2>Instrucciones de juego</h2>
+            </div>
+
+            <div class="instructions-body">
+                <ol class="instructions-list">
+                    <li>
+                        <strong>Selecciona el modo de juego y cantidad de canciones y toca el boton COMENZAR</strong>
+                    </li>
+                    <li>
+                        <strong>Designen a una persona del grupo para que sea quien dirija la playlist.</strong>
+                    </li>
+                    <li>
+                        <strong>Reproducir en modo aleatorio la playlist.</strong>
+                    </li>
+                    <li>
+                        <strong>Escuchá la canción, buscala en tu cartón y marcala si la
+                            encontrás.</strong>
+                    </li>
+                    <li>
+                        <strong>Cuando completes una columna o cartón completo    </strong>
+                        <strong>¡ GRITA BINGO!</strong> 🎉
+                    </li>
+                </ol>
+            </div>
+
+            <div class="instructions-footer">
+                <button class="btn-close-instructions" onclick="hideInstructionsModal()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
     <script src="js/app.js"></script>
 </body>
 <footer class="footer-content">
     <div class="footer-container">
-    
+
         <div class="footer-divider">
             <div class="musical-line">
                 <span class="note">🎵</span>

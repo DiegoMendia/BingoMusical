@@ -446,6 +446,164 @@ select {
     }
 }
 
+/* Modal de Instrucciones */
+.instructions-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.instructions-modal.show {
+    opacity: 1;
+}
+
+.instructions-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.instructions-content {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.instructions-modal.show .instructions-content {
+    transform: scale(1);
+}
+
+.instructions-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+}
+
+.instructions-icon {
+    font-size: 3em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.instructions-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.instructions-body {
+    padding: 30px;
+}
+
+.instructions-list {
+    list-style: none;
+    counter-reset: instructions-counter;
+    padding: 0;
+    margin: 0;
+}
+
+.instructions-list li {
+    counter-increment: instructions-counter;
+    position: relative;
+    padding: 15px 15px 15px 60px;
+    margin-bottom: 15px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.instructions-list li::before {
+    content: counter(instructions-counter);
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.instructions-list li strong {
+    color: #667eea;
+}
+
+.warning-icon {
+    color: #ff6b6b;
+    font-size: 1.2em;
+}
+
+.instructions-footer {
+    padding: 20px 30px;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+.btn-close-instructions {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-close-instructions:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-close-instructions:active {
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .instructions-content {
+        max-width: 95%;
+    }
+    
+    .instructions-body {
+        padding: 20px;
+    }
+    
+    .instructions-list li {
+        padding: 12px 12px 12px 55px;
+        font-size: 0.9em;
+    }
+}
+
 /* Estilos para el loader de inicialización */
 .initialization-loader {
     position: fixed;
