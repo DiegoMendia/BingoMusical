@@ -836,3 +836,38 @@ function continueGameSetup(playerName) {
         document.getElementById('currentSong').textContent = `${currentGame.gridSize} canciones`;
     }, 2000);
 }
+
+// Advertencia al intentar abandonar la página
+        let gameStarted = false;
+        
+        // Marcar que el juego ha comenzado cuando se inicia
+        const originalStartNewGame = window.startNewGame;
+        window.startNewGame = function() {
+            gameStarted = true;
+            if (originalStartNewGame) {
+                originalStartNewGame();
+            }
+        };
+        
+        // Mostrar advertencia antes de abandonar
+        window.addEventListener('beforeunload', function(e) {
+            if (gameStarted) {
+                const message = '¿Estás seguro de que quieres salir? Perderás todo el progreso del juego actual.';
+                e.preventDefault();
+                e.returnValue = message;
+                return message;
+            }
+        });
+        
+        // Advertencia para navegación con botón atrás
+        window.addEventListener('popstate', function(e) {
+            if (gameStarted) {
+                const confirmLeave = confirm('¿Estás seguro de que quieres volver? Perderás todo el progreso del juego actual.');
+                if (!confirmLeave) {
+                    window.history.pushState(null, '', window.location.href);
+                }
+            }
+        });
+        
+        // Crear entrada en el historial para detectar el botón atrás
+        window.history.pushState(null, '', window.location.href);
